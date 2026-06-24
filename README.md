@@ -77,5 +77,5 @@ Run the script with your Python3 interpreter e.g.
 The game asks the size of the board, how many are needed to win and does the player play with `X` or with `O`.
 To place a marker at a square, give the input as `ij` where `i` is the row number and `j` is the column number. For example, `02`.
 
-After each computer move, the game will report if the computer is on a winning path, on a path giving at least a tie, or on a path where the player is on a winning path.
+After each computer move, the game will report if the computer is on a winning path, on a path giving at least a tie, or if the player is on a winning path.
 
