@@ -364,5 +364,3 @@ if __name__ == '__main__':
                 change_settings = True
             case 3:
                 break
-
-     
