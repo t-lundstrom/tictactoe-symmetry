@@ -158,51 +158,17 @@ def winner_of_node(board,player_of_this_node,game_tree,needed_to_win,symmetries_
             return game_tree[board_permuted_by_s]
 
     
-    winner = check_winner(board,needed_to_win) # check if this node is a leaf, i.e. it has a winner
+    winner = check_winner(board,needed_to_win) # check if the game is a tie or has a winner
     if winner != None:
         game_tree[board] = winner
         return winner
     
-    # Next, we will look at which of the empty square we need to consider.
-    # For example, if the board is
-    # X |   | O
-    #   |   | 
-    # O |   | X
-    # then the empty squares are in positions 1,3,4,5,7 but we only need to consider positions 1,3,4.
-    # This is because, for example, we don't need to consider placing anything in position 5 
-    # since that is, up to symmetry, the same as placing something in position 1 as these two positions are related by a reflection 
-    # along the down-left up-right diagonal which keeps to board fixed.
-    # This reduces the number children of this node we need to consider.
-
-    symmetries_of_board = [] # the set of symmetries of the square that keep the board fixed
-    for s in symmetries_of_square:
-        for i in range(len(board)):
-            if board[i] != board[s[i]]:
-                break
-        else:
-            symmetries_of_board.append(s)
-
     empty_squares = [i for i in range(len(board)) if board[i] == 'e']
-    empty_squares_uts = [] # empty squares up to symmetry
-    
-    # We compute the list empty_squares_uts
-    for i in empty_squares:
-        symmetrically_unique = True
-        for j in empty_squares_uts:
-            for s in symmetries_of_board:
-                if i == s[j]:
-                    symmetrically_unique = False
-                    break
-            if not symmetrically_unique:
-                break
-        else:
-            empty_squares_uts.append(i)    
-
-    next_boards_uts = [place_at(board,i,player_of_this_node) for i in empty_squares_uts] # all possible moves current player can make here, up to symmetry
+    next_boards = [place_at(board,i,player_of_this_node) for i in empty_squares] # all possible moves current player can make here
   
     other_player = 'X' if player_of_this_node == 'O' else 'O'
   
-    outcomes = [winner_of_node(b,other_player,game_tree,needed_to_win,symmetries_of_square) for b in next_boards_uts] # compute the outcomes of the relevant children of this node
+    outcomes = [winner_of_node(b,other_player,game_tree,needed_to_win,symmetries_of_square) for b in next_boards] # compute the outcomes of the children of this node
 
     if outcomes.count(player_of_this_node) >= 1: 
         # if current player wins at least one of the next nodes it wins this node
