@@ -63,9 +63,9 @@ This reduces the number of positions that need to be considered.
 
 Below are some numbers that show how much the game tree is pruned and how much faster the computation is. The computations were done with an M1 macbook air.
 
-| Board size , how many to win | Number of nodes in game tree (without symmetry) | Number of nodes (with symmetry) | Time (without symmetry) | Time (with symmetry) |
+| Board size , how many to win | Number of nodes in game tree (without symmetry) | Number of nodes in game tree (with symmetry) | Time (without symmetry) | Time (with symmetry) |
 | -- | -- | -- | -- | -- | 
 | 3x3, 3 to win| 5478 | _ | 0.053s | _ |
 | 4x4, 3 to win | 6,036,001 | _ | 78.138s | _ |
-| 4x4, 4 to win | _ | _ | _ | _ |
+| 4x4, 4 to win | 9,722,011 | _ | 145.947s | _ |
 
