@@ -64,8 +64,8 @@ Below are some numbers that show how much the game tree is pruned and how much f
 | Board size , how many to win | Number of nodes in game tree (without symmetry) | Number of nodes in game tree (with symmetry) | Time to compute entire game tree (without symmetry) | Time to compute entire game tree (with symmetry) |
 | -- | -- | -- | -- | -- | 
 | 3x3, 3 to win| 5478 | 765 | 0.053s | 0.028s |
-| 4x4, 3 to win | 6,036,001 | 756,387 | 78.138s | 14.173s |
-| 4x4, 4 to win | 9,722,011 | 1,217,977 | 145.947s | 30.181s |
+| 4x4, 3 to win | 6,036,001 | 756,387 | 78.138s | 13.220s |
+| 4x4, 4 to win | 9,722,011 | 1,217,977 | 145.947s | 28.086s |
 
 With 5x5 and beyond the game tree starts to get too big to be computed on a laptop, even with symmetry.
 
