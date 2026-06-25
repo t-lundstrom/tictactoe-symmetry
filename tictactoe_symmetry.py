@@ -149,7 +149,7 @@ def place_at(board,i,m):
 
 
 def winner_of_node(board,player_of_this_node,game_tree,needed_to_win,symmetries_of_square):
-    # We compute the winner of this node of the game tree, corresponding to 'board'.
+    # We compute the winner of this node of the game tree with a depth-first search.
     
     # Check if this board or any of its permutations has already been computed
     for s in symmetries_of_square:
@@ -202,9 +202,10 @@ def next_move_for_computer(current_board,game_tree,permutations,computer_symbol)
 
     for b in next_boards:
         for s in permutations:
-            b_permuted_by_s = ''.join([b[s[i]] for i in range(len(b))])
-            if b_permuted_by_s in game_tree.keys():
-                next_boards_and_their_permutations.append((b,b_permuted_by_s))
+            b_perm = ''.join([b[s[i]] for i in range(len(b))])
+            if b_perm in game_tree.keys():
+                next_boards_and_their_permutations.append((b,b_perm))
+                # we could also break here
     
     # Check if there are winning moves
     for b,b_perm in next_boards_and_their_permutations:
