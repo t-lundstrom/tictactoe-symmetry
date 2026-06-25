@@ -1,6 +1,6 @@
 # About
 This is a personal learning project where I experimented with an idea for tic-tac-toe. 
-The game is played against a computer that computes the entire game tree at the beginning of the game and then always makes the most optimal move every time.
+The game is played against a computer that computes the entire [game tree](https://en.wikipedia.org/wiki/Game_tree) at the beginning of the game and then always makes the most optimal move every time.
 To prune search space, the boards are cosidered only up to symmetries of the square.
 For example, if the current board is 
 
